@@ -1,5 +1,7 @@
 import React from "react";
 import ExpenseItem from "./ExpenseItem";
+import "./Expense.css";
+import Card from "../UI/Card";
 
 function Expense() {
   const expenses = [
@@ -33,7 +35,7 @@ function Expense() {
     },
   ];
   return (
-    <>
+    <Card className="expenses">
       {expenses.map((expense) => {
         return (
           <ExpenseItem
@@ -45,7 +47,7 @@ function Expense() {
           ></ExpenseItem>
         );
       })}
-    </>
+    </Card>
   );
 }
 
