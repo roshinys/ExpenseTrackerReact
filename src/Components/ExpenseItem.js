@@ -1,23 +1,42 @@
 import React from "react";
+import "./ExpenseItem.css";
 
 function ExpenseItem() {
-  const expenseItems = [
-    { name: "food", price: 10 },
-    { name: "petrol", price: 10 },
-    { name: "other", price: 20 },
+  const expenses = [
+    {
+      id: "e1",
+      title: "Toilet Paper",
+      amount: 94.12,
+      date: new Date(2020, 7, 14),
+    },
+    { id: "e2", title: "New TV", amount: 799.49, date: new Date(2021, 2, 12) },
+    {
+      id: "e3",
+      title: "Car Insurance",
+      amount: 294.67,
+      date: new Date(2021, 2, 28),
+    },
+    {
+      id: "e4",
+      title: "New Desk (Wooden)",
+      amount: 450,
+      date: new Date(2021, 5, 12),
+    },
   ];
   return (
-    <div>
-      <ul>
-        {expenseItems.map((expense) => {
-          return (
-            <li>
-              {expense.name} Rs{expense.price}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <>
+      {expenses.map((expense) => {
+        return (
+          <div className="expense-item" id={expense.id}>
+            <div>March 28 2023</div>
+            <div className="expense-item__description">
+              <h2>{expense.title}</h2>
+              <div className="expense-item__price">Rs {expense.amount}</div>
+            </div>
+          </div>
+        );
+      })}
+    </>
   );
 }
 
