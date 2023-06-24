@@ -15,6 +15,7 @@ function Expense() {
       title: "New TV",
       amount: 799.49,
       date: new Date(2021, 2, 12),
+      location: "mumbai",
     },
     {
       id: "e3",

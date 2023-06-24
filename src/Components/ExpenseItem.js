@@ -1,10 +1,11 @@
 import React from "react";
 import "./ExpenseItem.css";
+import ExpenseDate from "./ExpenseDate";
 
-function ExpenseItem({ id, date, title, amount, location }) {
+function ExpenseItem({ date, title, amount, location }) {
   return (
     <div className="expense-item">
-      <div>{date.toISOString()}</div>
+      <ExpenseDate date={date} />
       <div className="expense-item__description">
         <h2>{title}</h2>
         <h2>{location}</h2>
