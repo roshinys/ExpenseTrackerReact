@@ -2,45 +2,56 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 function ExpenseForm() {
-  //   const [enteredTitle, setEnteredTitle] = useState("");
-  //   const [enteredAmount, setEnteredAmount] = useState("");
-  //   const [enteredDate, setEnteredDate] = useState("");
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
 
-  const [userInput, SetUserInput] = useState({
-    enteredTitle: "",
-    enteredAmount: "",
-    enteredDate: "",
-  });
+  //   const [userInput, SetUserInput] = useState({
+  //     enteredTitle: "",
+  //     enteredAmount: "",
+  //     enteredDate: "",
+  //   });
 
   const titleChangeHanlder = (e) => {
-    // setEnteredTitle(e.target.value);
-    SetUserInput((prevState) => {
-      return { ...prevState, enteredTitle: e.target.value };
-    });
+    setEnteredTitle(e.target.value);
+    // SetUserInput((prevState) => {
+    //   return { ...prevState, enteredTitle: e.target.value };
+    // });
   };
 
   const amountChangeHanlder = (e) => {
-    // setEnteredAmount(e.target.value);
-    SetUserInput((prevState) => {
-      return { ...prevState, enteredAmount: e.target.value };
-    });
+    setEnteredAmount(e.target.value);
+    // SetUserInput((prevState) => {
+    //   return { ...prevState, enteredAmount: e.target.value };
+    // });
   };
 
   const dateChangeHanlder = (e) => {
-    // setEnteredDate(e.target.value);
-    SetUserInput((prevState) => {
-      return { ...prevState, enteredAmount: e.target.value };
-    });
+    setEnteredDate(e.target.value);
+    // SetUserInput((prevState) => {
+    //   return { ...prevState, enteredAmount: e.target.value };
+    // });
+  };
+
+  const expenseSubmitHandler = (e) => {
+    e.preventDefault();
+    console.log("submit button");
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+    console.log(expenseData);
   };
 
   return (
-    <form>
+    <form onSubmit={expenseSubmitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
           <input
             type="text"
-            value={userInput.enteredTitle}
+            value={enteredTitle}
             onChange={titleChangeHanlder}
           />
         </div>
@@ -50,7 +61,7 @@ function ExpenseForm() {
             type="number"
             min="0.01"
             step="0.01"
-            value={userInput.enteredAmount}
+            value={enteredAmount}
             onChange={amountChangeHanlder}
           />
         </div>
@@ -60,7 +71,7 @@ function ExpenseForm() {
             type="date"
             min="2019-01-01"
             max="2022-12-31"
-            value={userInput.enteredDate}
+            value={enteredDate}
             onChange={dateChangeHanlder}
           />
         </div>
