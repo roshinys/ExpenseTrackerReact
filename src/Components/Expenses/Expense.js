@@ -3,7 +3,7 @@ import ExpenseItem from "./ExpenseItem";
 import "./Expense.css";
 import Card from "../UI/Card";
 
-function Expense() {
+function Expense(props) {
   const expenses = [
     {
       id: "e1",
@@ -34,6 +34,7 @@ function Expense() {
       location: "Chennai",
     },
   ];
+
   return (
     <Card className="expenses">
       {expenses.map((expense) => {
