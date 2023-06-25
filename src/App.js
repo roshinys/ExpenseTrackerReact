@@ -1,11 +1,12 @@
 import Expense from "./Components/Expenses/Expense";
+import NewExpense from "./Components/NewExpense/NewExpense";
 
 function App() {
   return (
-    <div>
-      <h2>Let's get started!</h2>
+    <>
+      <NewExpense />
       <Expense></Expense>
-    </div>
+    </>
   );
 }
 
