@@ -2,20 +2,35 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 function ExpenseForm() {
-  const [enteredTitle, setEnteredTitle] = useState("");
-  const [enteredAmount, setEnteredAmount] = useState("");
-  const [enteredDate, setEnteredDate] = useState("");
+  //   const [enteredTitle, setEnteredTitle] = useState("");
+  //   const [enteredAmount, setEnteredAmount] = useState("");
+  //   const [enteredDate, setEnteredDate] = useState("");
+
+  const [userInput, SetUserInput] = useState({
+    enteredTitle: "",
+    enteredAmount: "",
+    enteredDate: "",
+  });
 
   const titleChangeHanlder = (e) => {
-    setEnteredTitle(e.target.value);
+    // setEnteredTitle(e.target.value);
+    SetUserInput((prevState) => {
+      return { ...prevState, enteredTitle: e.target.value };
+    });
   };
 
   const amountChangeHanlder = (e) => {
-    setEnteredAmount(e.target.value);
+    // setEnteredAmount(e.target.value);
+    SetUserInput((prevState) => {
+      return { ...prevState, enteredAmount: e.target.value };
+    });
   };
 
   const dateChangeHanlder = (e) => {
-    setEnteredDate(e.target.value);
+    // setEnteredDate(e.target.value);
+    SetUserInput((prevState) => {
+      return { ...prevState, enteredAmount: e.target.value };
+    });
   };
 
   return (
@@ -25,7 +40,7 @@ function ExpenseForm() {
           <label>Title</label>
           <input
             type="text"
-            value={enteredTitle}
+            value={userInput.enteredTitle}
             onChange={titleChangeHanlder}
           />
         </div>
@@ -35,7 +50,7 @@ function ExpenseForm() {
             type="number"
             min="0.01"
             step="0.01"
-            value={enteredAmount}
+            value={userInput.enteredAmount}
             onChange={amountChangeHanlder}
           />
         </div>
@@ -45,7 +60,7 @@ function ExpenseForm() {
             type="date"
             min="2019-01-01"
             max="2022-12-31"
-            value={enteredDate}
+            value={userInput.enteredDate}
             onChange={dateChangeHanlder}
           />
         </div>
