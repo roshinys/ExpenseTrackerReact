@@ -27,15 +27,21 @@ function ExpenseItem(props) {
   };
 
   return (
-    <Card className="expense-item">
-      <ExpenseDate date={props.date} />
-      <ExpenseDetail title={title} amount={amount} location={props.location} />
-      <button onClick={clickHandler}>Change Title</button>
-      <button onClick={amountHandler}>Add 100rs</button>
-      <button id={props.id} onClick={deleteExpenseHandler}>
-        Delete Expense
-      </button>
-    </Card>
+    <li>
+      <Card className="expense-item">
+        <ExpenseDate date={props.date} />
+        <ExpenseDetail
+          title={title}
+          amount={amount}
+          location={props.location}
+        />
+        <button onClick={clickHandler}>Change Title</button>
+        <button onClick={amountHandler}>Add 100rs</button>
+        <button id={props.id} onClick={deleteExpenseHandler}>
+          Delete Expense
+        </button>
+      </Card>
+    </li>
   );
 }
 
